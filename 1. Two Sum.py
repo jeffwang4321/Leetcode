@@ -28,13 +28,9 @@ if __name__ == "__main__":
   s = Solution()
 
   # Test Cases
-  t1 = s.twoSum([2,7,11,15], 9)
-  t2 = s.twoSum([3,2,4], 6)
-  t3 = s.twoSum([3,3], 6)
-
-  t1.sort()
-  t2.sort()
-  t3.sort()
+  t1 = sorted(s.twoSum([2,7,11,15], 9))
+  t2 = sorted(s.twoSum([3,2,4], 6))
+  t3 = sorted(s.twoSum([3,3], 6))
 
   # Output
   print(t1)
