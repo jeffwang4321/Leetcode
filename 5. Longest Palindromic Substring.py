@@ -37,7 +37,7 @@ class Solution:
             odd  = self.palindromeAt(s, i, i)
             even = self.palindromeAt(s, i, i+1)
             
-            res = max(res, odd, even, key=len)
+            res = max(res, odd, even, key=len) # get maxLength(res, odd, even), key is the varaiable that is being compared, in this case max length
         return res
  
     # starting at l,r expand outwards to find the biggest palindrome

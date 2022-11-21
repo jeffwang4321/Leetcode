@@ -13,7 +13,7 @@ class Solution:
 
     # Optimal Approach - Hashmap
     # Time complexity O(n), Space complexity O(n)
-    # hashmap = {value : index}
+    # hashmap = {value : index} -> hashmap[value] = index
     searched = {}
     for i in range(len(nums)):
       difference = target - nums[i]

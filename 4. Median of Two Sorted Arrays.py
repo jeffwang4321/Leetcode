@@ -12,8 +12,8 @@ class Solution:
       while i <= half:
         if len(nums1) and len(nums2):
           if nums1[0] < nums2[0]:
-            array.append(nums1[0])
-            nums1.pop(0)
+            array.append(nums1[0]) # append to the end of the list
+            nums1.pop(0) # remove elem from list[0], can get/store/print this value
           else:
             array.append(nums2[0])
             nums2.pop(0)
@@ -35,7 +35,7 @@ class Solution:
 
 
       # Time: O(nlogn) - timsort, Space: O(n) - list/ timsort
-      # total = sorted(nums1 + nums2)
+      # total = sorted(nums1 + nums2) # sorted() is O(nlogn)
       # half = len(total) // 2
           
       # # odd
