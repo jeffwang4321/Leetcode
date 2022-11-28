@@ -42,8 +42,14 @@ arr = [-1] + arr
 print(arr)
 # [-1, 0, 1, 2, 3, 4, 5, 6]
 ```
-Set 
+set() 
 ```
+hashSet = set()
+print(hashSet)
+# set()
+print(len(hashSet))
+# 0
+
 arr = [i for i in range(5)]
 print(arr)
 # [0, 1, 2, 3, 4]
@@ -53,6 +59,9 @@ print(arrSet)
 # {0, 1, 2, 3, 4}
 
 arrSet.add(5)
+print(arrSet)
+# {0, 1, 2, 3, 4, 5}
+arrSet.remove(4)
 print(arrSet)
 # {0, 1, 2, 3, 5}
 
@@ -69,6 +78,12 @@ Hashmap
 ```
 hash1 = {'a': 3, 'n': 1, 'g': 1, 'r': 1, 'm': 1}
 hash2 = {'n': 1, 'a': 3, 'g': 1, 'r': 1, 'm': 1}
+print(len(hash1)) # print(len(hash2))
+# 5
+hash3 = {}
+print(len(hash3))
+# 3
+
 print(hash1 == hash2)
 # True
 print(hash1['a'])
@@ -83,3 +98,4 @@ print(hash1.get('z')) # No Error
 print(hash1.get('z', 0)) # if None then 0 else hash1['z']
 # 0
 ```
+
