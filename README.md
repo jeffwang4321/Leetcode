@@ -8,7 +8,7 @@
 
 ### Review Notes
 
-List manipulation
+List
 ```
 arr = [i for i in range(5)]
 print(arr)
@@ -42,4 +42,44 @@ arr = [-1] + arr
 print(arr)
 # [-1, 0, 1, 2, 3, 4, 5, 6]
 ```
+Set 
+```
+arr = [i for i in range(5)]
+print(arr)
+# [0, 1, 2, 3, 4]
 
+arrSet = set(arr)
+print(arrSet)
+# {0, 1, 2, 3, 4}
+
+arrSet.add(5)
+print(arrSet)
+# {0, 1, 2, 3, 5}
+
+arrSet.add(5) # No Error
+print(arrSet)
+# {0, 1, 2, 3, 5} # No change
+
+print(5 in arrSet) 
+# True
+print(6 in arrSet) 
+# False
+```
+Hashmap 
+```
+hash1 = {'a': 3, 'n': 1, 'g': 1, 'r': 1, 'm': 1}
+hash2 = {'n': 1, 'a': 3, 'g': 1, 'r': 1, 'm': 1}
+print(hash1 == hash2)
+# True
+print(hash1['a'])
+# 3
+print(hash1.get('a'))
+# 3
+
+print(hash1['z'])
+# KeyError: 'z'
+print(hash1.get('z')) # No Error
+# None
+print(hash1.get('z', 0)) # if None then 0 else hash1['z']
+# 0
+```
