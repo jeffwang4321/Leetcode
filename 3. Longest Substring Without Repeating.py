@@ -10,7 +10,7 @@ class Solution:
         charSet.remove(s[l]) # Remove elem from list/set
         l += 1
       charSet.add(s[r]) # Add  elem to set
-      # res = max(res, r - l + 1) -> r - 1 + 1 = length of [arr[l]... arr[r]] = len(arr[l:r+1]) 
+      # res = max(res, r - l + 1) -> r - l + 1 = length of [arr[l]... arr[r]] = len(arr[l:r+1]) 
       res = max(res, len(charSet)) 
         
     return res

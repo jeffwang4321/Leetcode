@@ -25,7 +25,7 @@ class Solution:
       res[row].append(c)
       
       if row == 0 or row == numRows -1:
-          delta *=-1
+          delta *= -1
       row += delta
     
     for i in range(len(res)):
