@@ -3,7 +3,7 @@ from typing import List
 class Solution:
   def maxArea(self, height: List[int]) -> int:
     # BRUTE FORCE  
-    # Time: O(n^2)
+    # Time: O(n^2) - 2 loops, Space: O(1) - ints
 
     # res = 0
     
@@ -14,6 +14,8 @@ class Solution:
     
     # return res
 
+    # OPTIMAL
+    # Time: O(n) - 1 loop, Space: O(1) - ints
     res = 0
     l, r = 0, len(height) - 1
     
@@ -27,6 +29,7 @@ class Solution:
         r -= 1
     
     return res
+    
 
 
 # python3 '.\11. Container With Most Water.py'
