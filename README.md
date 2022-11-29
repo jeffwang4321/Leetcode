@@ -98,4 +98,28 @@ print(hash1.get('z')) # No Error
 print(hash1.get('z', 0)) # if None then 0 else hash1['z']
 # 0
 ```
+Boolean Logic
+```
+print(0 == True)
+# False
+print(1 == True)
+# True
+
+print(not 0)
+# True
+print(not 1)
+# False
+
+list = []
+print(list)
+# []
+print(not list)
+# True
+
+list2 = [0, 1]
+print(list2)
+# [0, 1]
+print(not list2)
+# False
+```
 

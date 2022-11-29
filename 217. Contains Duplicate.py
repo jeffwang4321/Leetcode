@@ -18,16 +18,15 @@ class Solution:
     # OPTIMAL
     # Time: O(n) - 1 loop, Space: O(n)
     # Method - insert into set() check if num already exists 
-    # hashMap = set()
-    # for i in nums:
-    #   if i in hashMap:
-    #     return True
-    #   else:
-    #     hashMap.add(i)
+    hashMap = set()
+    for i in nums:
+      if i in hashMap:
+        return True
+      else:
+        hashMap.add(i)
         
-    # return False
+    return False
 
-    
 
 
 # python3 '.\217. Contains Duplicate.py'

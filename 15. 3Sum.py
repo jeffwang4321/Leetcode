@@ -22,6 +22,8 @@ class Solution:
     # return res
       
     # OPTIMAL
+    # Method - sort input arr so that we can check for duplicate on previous input 
+    # Optimized using Two Pointer technique
     # Time complexity O(n^2), Space complexity O(1)
     res = []
     nums.sort()
@@ -47,7 +49,6 @@ class Solution:
             l += 1
             
     return res
-
     
 
 
