@@ -122,4 +122,19 @@ print(list2)
 print(not list2)
 # False
 ```
+deque
+```
+from collections import deque
+q = deque()
+print(q)
+# deque([])
 
+q.append('a')
+print(q)
+# deque(['a'])
+
+q2 = deque([1])
+print(q2)
+# deque([1])
+
+```

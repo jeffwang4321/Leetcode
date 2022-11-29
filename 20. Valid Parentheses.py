@@ -24,6 +24,8 @@ class Solution:
     #     return False
     # else:
     #     return True
+
+    # return False if stack else True
     return not stack
     
 
