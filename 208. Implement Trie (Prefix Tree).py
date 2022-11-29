@@ -13,7 +13,7 @@ class Trie:
         for c in word:
             if c not in cur.children:
                 cur.children[c] = TrieNode() # add TrieNode if it doesnt exist 
-            cur = cur.children[c] # interate through Trie if it exits
+            cur = cur.children[c] # interate through Trie if it exists
         cur.endOfWord = True
 
     def search(self, word: str) -> bool:

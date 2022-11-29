@@ -30,17 +30,17 @@ print(arr.pop(1))
 print(arr)
 # [0, 2, 3, 4]
 
-arr.insert(1, 1)
+arr.insert(1, 'x') # at index 1 insert 'x'
 print(arr)
-# [0, 1, 2, 3, 4]
+# [0, 'x', 2, 3, 4]
 
 arr += [5, 6] # arr.extend([5, 6])
 print(arr)
-# [0, 1, 2, 3, 4, 5, 6]
+# [0, 'x', 2, 3, 4, 5, 6]
 
 arr = [-1] + arr 
 print(arr)
-# [-1, 0, 1, 2, 3, 4, 5, 6]
+# [-1, 0, 'x', 2, 3, 4, 5, 6]
 ```
 set() 
 ```
@@ -93,8 +93,11 @@ print(hash1['a'])
 print(hash1.get('a'))
 # 3
 
-print(hash1['z'])
-# KeyError: 'z'
+try:
+  print(hash1['z'])
+  # KeyError: 'z'
+except:
+  print("KeyError: 'z'")
 print(hash1.get('z')) # No Error
 # None
 print(hash1.get('z', 0)) # if None then 0 else hash1['z']
@@ -111,6 +114,11 @@ print(not 0)
 # True
 print(not 1)
 # False
+
+print(None == None)
+# True
+print(not None)
+# True
 
 list = []
 print(list)
@@ -135,8 +143,17 @@ q.append('a')
 print(q)
 # deque(['a'])
 
-q2 = deque([1])
+q2 = deque([1, 2, 3])
 print(q2)
 # deque([1])
 
+print(q2.popleft())
+# 1
+print(q2)
+# deque([2, 3])
+
+print(q2.pop())
+# 3
+print(q2)
+# deque([2])
 ```
