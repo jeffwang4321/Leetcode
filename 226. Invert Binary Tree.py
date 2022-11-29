@@ -21,6 +21,7 @@ class Solution:
     self.invertTree(root.right)
     return root
 
+
 def printTree(node, level=0):
   if node != None:
     printTree(node.left, level + 1)
@@ -47,8 +48,9 @@ if __name__ == "__main__":
 
   t1 = TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9)))
 
-  traverse(t1)
-  # printTree(t1)
+  # traverse(t1)
+  printTree(t1)
+  print('\n')
 
-  traverse(s.invertTree(t1))
+  printTree(s.invertTree(t1))
 
