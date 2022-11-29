@@ -80,6 +80,8 @@ hash1 = {'a': 3, 'n': 1, 'g': 1, 'r': 1, 'm': 1}
 hash2 = {'n': 1, 'a': 3, 'g': 1, 'r': 1, 'm': 1}
 print(len(hash1)) # print(len(hash2))
 # 5
+print(hash1.values())
+# dict_values([3, 1, 1, 1, 1]) # can iterate it using for loop
 hash3 = {}
 print(len(hash3))
 # 3
