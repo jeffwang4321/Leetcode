@@ -2,7 +2,7 @@ from typing import List
 
 class TrieNode:
     def __init__(self):
-        self.children = {} # key: char, value: TrieNode
+        self.children = {} # key: char, TrieNode
         self.isWord = False
 
     def addWord(self, word):
