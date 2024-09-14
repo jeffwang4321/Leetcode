@@ -1,5 +1,12 @@
+AWS
+- 212. Word Search II
+
 Loopio 
 - 227. Basic Calculator II
+- 387. First Unique Character in a String
+- How to design a reusable react modal
+- How to design/structure backend API
+
 
 CIBC 
 - 74. Search a 2D Matrix
