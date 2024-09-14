@@ -1,56 +1,127 @@
-from typing import Optional
+from collections import deque
+
 
 # Definition for a binary tree node.
 class TreeNode:
-  def __init__(self, val=0, left=None, right=None):
-    self.val = val
-    self.left = left
-    self.right = right
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
-  def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        # # Method 1 - Recursion
+        if root is None:
+            return None
+
+        root.left, root.right = root.right, root.left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        return root
+
+        # # Method 2 - deque
+        # if root is None:
+        #     return None
+
+        # queue = deque([root])
+        # while queue:
+        #     curr = queue.popleft()
+
+        #     curr.left, curr.right = curr.right, curr.left
+
+        #     if curr.left:
+        #         queue.append(curr.left)
+        #     if curr.right:
+        #         queue.append(curr.right)
+
+        # return root
+
+
+# Helper function to print the binary tree in level order (BFS) for easy comparison
+def print_tree(root: TreeNode):
     if not root:
-      return None
+        print("None")
+        return
 
-    # swap the children
-    temp = root.left
-    root.left = root.right
-    root.right = temp
+    queue = [root]
+    result = []
 
-    self.invertTree(root.left)
-    self.invertTree(root.right)
-    return root
+    while queue:
+        current = queue.pop(0)
+        if current:
+            result.append(current.val)
+            queue.append(current.left)
+            queue.append(current.right)
+        else:
+            result.append(None)
 
+    # To avoid trailing None values which are not meaningful in visualizing the tree structure
+    while result and result[-1] is None:
+        result.pop()
 
-def printTree(node, level=0):
-  if node != None:
-    printTree(node.left, level + 1)
-    print(' ' * 4 * level + '-> ' + str(node.val))
-    printTree(node.right, level + 1)
-
-def traverse(root):
-  current_level = [root]
-  while current_level:
-    print(' '.join(str(node.val) for node in current_level))
-    next_level = list()
-    for n in current_level:
-      if n.left:
-        next_level.append(n.left)
-      if n.right:
-        next_level.append(n.right)
-    current_level = next_level
-
+    print(result)
 
 
 # python3 '.\226. Invert Binary Tree.py'
 if __name__ == "__main__":
-  s = Solution()
+    # Example tree:
+    #      4
+    #     / \
+    #    2   7
+    #   / \ / \
+    #  1  3 6  9
 
-  t1 = TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9)))
+    # Creating the example tree
+    root = TreeNode(4)
+    root.left = TreeNode(2)
+    root.right = TreeNode(7)
+    root.left.left = TreeNode(1)
+    root.left.right = TreeNode(3)
+    root.right.left = TreeNode(6)
+    root.right.right = TreeNode(9)
 
-  # traverse(t1)
-  printTree(t1)
-  print('\n')
+    # Print the original tree
+    print("Original tree:")
+    print_tree(root)
 
-  printTree(s.invertTree(t1))
+    # Invert the binary tree
+    solution = Solution()
+    inverted_root = solution.invertTree(root)
 
+    # Print the inverted tree
+    print("\nInverted tree:")
+    print_tree(inverted_root)
+
+    # Additional test case 1
+    print("\nTest Case 1:")
+    # Tree: 1 -> (2, 3)
+    root1 = TreeNode(1)
+    root1.left = TreeNode(2)
+    root1.right = TreeNode(3)
+    print("Original:", end=" ")
+    print_tree(root1)
+    inverted_root1 = solution.invertTree(root1)
+    print("Inverted:", end=" ")
+    print_tree(inverted_root1)
+
+    # Additional test case 2
+    print("\nTest Case 2:")
+    # Tree: 1
+    root2 = TreeNode(1)
+    print("Original:", end=" ")
+    print_tree(root2)
+    inverted_root2 = solution.invertTree(root2)
+    print("Inverted:", end=" ")
+    print_tree(inverted_root2)
+
+    # Additional test case 3 (Empty tree)
+    print("\nTest Case 3:")
+    # Tree: None
+    root3 = None
+    print("Original:", end=" ")
+    print_tree(root3)
+    inverted_root3 = solution.invertTree(root3)
+    print("Inverted:", end=" ")
+    print_tree(inverted_root3)

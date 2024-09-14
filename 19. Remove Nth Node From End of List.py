@@ -9,17 +9,24 @@ class ListNode:
 
 
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = None
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        length = 0
         curr = head
-
         while curr:
-            next_node = curr.next  # Save the next node
-            curr.next = prev  # Reverse the link
-            prev = curr  # Move prev to current node
-            curr = next_node  # Move to the next node
+            length += 1
+            curr = curr.next
 
-        return prev
+        position_remove = length - n
+
+        if position_remove == 0:
+            return head.next
+
+        curr = head
+        for _ in range(position_remove - 1):
+            curr = curr.next
+
+        curr.next = curr.next.next
+        return head
 
 
 def list_to_linkedlist(lst: List[int]) -> Optional[ListNode]:
@@ -41,21 +48,20 @@ def linkedlist_to_list(head: Optional[ListNode]) -> List[int]:
     return result
 
 
-# python3 '.\206. Reverse Linked List.py'
 if __name__ == "__main__":
     s = Solution()
 
-    test_list1 = [1, 2, 3, 4, 5]
-    head1 = list_to_linkedlist(test_list1)
-    reversed_head1 = s.reverseList(head1)
-    print(linkedlist_to_list(reversed_head1))
-
-    test_list2 = [1, 2]
+    test_list2 = [1, 2, 3, 4, 5]
     head2 = list_to_linkedlist(test_list2)
-    reversed_head2 = s.reverseList(head2)
-    print(linkedlist_to_list(reversed_head2))
+    s.removeNthFromEnd(head2, n=2)
+    print(linkedlist_to_list(head2))
 
-    test_list3 = []
+    test_list1 = [1]
+    head1 = list_to_linkedlist(test_list1)
+    s.removeNthFromEnd(head1, n=1)
+    print(linkedlist_to_list(head1))
+
+    test_list3 = [1, 2]
     head3 = list_to_linkedlist(test_list3)
-    reversed_head3 = s.reverseList(head3)
-    print(linkedlist_to_list(reversed_head3))
+    s.removeNthFromEnd(head3, n=1)
+    print(linkedlist_to_list(head3))
